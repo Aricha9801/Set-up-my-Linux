@@ -17,7 +17,30 @@ It is recommended to use LTS.
 For WUR environment, when it comes to problem about Secure Boot Violation, got to ServiceDesk for help.
 
 ## First setup
+Update:
+```shell
+sudo apt update && sudo apt upgrade -y
+```
 
+## Installations
+
+### Install Microsoft Teams
+Make sure you did apt update and apt upgrade
+
+```shell
+sudo apt install snapd
+sudo snap install teams-for-linux
+Teams-for-linux –-version
+teams-for-linux
+```
+### Install VScode
+
+Download the .deb [Download Visual Studio Code](https://code.visualstudio.com/Download)
+```shell
+sudo dpkg -i ~/Downloads/code_1.XXX.deb
+code
+```
+If you found apps like Teams and VScode are blurry, that's because [Blurry VsCode on wayland fractional scaling ](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/ikhc12o/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button). Setting scales to 100% can solve it. Other solutions can be found from the link.
 
 
 
