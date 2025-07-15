@@ -114,6 +114,7 @@ sudo apt install python3-venv -y
 ```
 ### Install PostgreSQL
 It is recommended to add the Postgres repo.
+
 PostgreSQL 17 installation guide [PostgreSQL 17 Installation on Ubuntu 24.04](https://dev.to/johndotowl/postgresql-17-installation-on-ubuntu-2404-5bfi)
 ```shell
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
@@ -145,6 +146,9 @@ sudo apt install postgresql-17-postgis-3
 
 ### Install node and npm
 nodejs LTS install guide [Download Node.js](https://nodejs.org/en/download)
+
+### Install QGIS
+guides at [QGIS Installers ](https://qgis.org/resources/installation-guide/#debian--ubuntu)
 
 
 
