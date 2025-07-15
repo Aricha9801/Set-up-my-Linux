@@ -16,6 +16,18 @@ It is recommended to use LTS.
 
 For WUR environment, when it comes to problem about Secure Boot Violation, got to ServiceDesk for help.
 
+## Shortcuts
+Shortcuts for terminals can be found and edited at Edit -> preferences -> Shortcuts
+| Shortcut    | Use |
+| -------- | ------- |
+| Ctrl + Alt + T  | open the terminal   |
+| Super (Win) | show all activities    |
+| Ctrl + L    |  clear the terminal screen   |
+
+
+## Terminal commands
+
+
 ## First setup
 Update:
 ```shell
@@ -42,6 +54,15 @@ code
 ```
 If you found apps like Teams and VScode are blurry, that's because [Blurry VsCode on wayland fractional scaling ](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/ikhc12o/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button). Setting scales to 100% can solve it. Other solutions can be found from the link.
 
+### Install and setup Git
 
+```shell
+sudo apt install git-all
+git --version
+```
+```shell
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+```
 
 
