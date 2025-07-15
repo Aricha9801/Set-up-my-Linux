@@ -26,7 +26,7 @@ Shortcuts for terminals can be found and edited at Edit -> preferences -> Shortc
 
 
 ## Terminal commands
-
+Check tutorial [The Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
 
 ## First setup
 Update:
@@ -64,5 +64,16 @@ git --version
 git config --global user.name "Your Name"
 git config --global user.email "youremail@domain.com"
 ```
+To connect to WUR gitlab, either create a access token or set up ssh key.
+
+To set up ssh key for WUR gitlab, see guide [SSH keys for GitLab](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.wur.nl/en/show/ssh-keys-for-wur-gitlab.htm&ved=2ahUKEwis6dHvzb6OAxXp0wIHHaAMBh0QFnoECBsQAQ&usg=AOvVaw1NmhXZjnZ5JJbnMxwzdTMS)
+
+```shell
+ssh-keygen -t ed25519 -C pietje.puk@wur.nl
+```
+Then paste the xxx.pub, in Gitlab add the ssh key.
+
+Now try clone a repo and push a commit.
+
 
 
