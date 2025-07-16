@@ -163,11 +163,35 @@ sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] h
 sudo apt install pgadmin4
 ```
 
-### Install node and npm
+### Install NodeJS and npm
 nodejs LTS install guide [Download Node.js](https://nodejs.org/en/download)
 
+### Install Java and Solr
+Java installation guide [How to Install Java with Apt on Ubuntu (JRE & JDK)](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-22-04).
+
+Solr installation guide [Apache Solr Reference Guide](https://solr.apache.org/guide/solr/latest/getting-started/solr-tutorial.html)
+
+To Use Solr easily, download the binary relase to your home directory, unpack:
+```shell
+tar -xzf solr-9.8.1.tgz
+cd solr-9.8.1
+```
+Then you can start solr:
+```shell
+bin/solr start -c
+```
+
+To install solr as a service:
+```shell
+sudo bash solr-version/bin/install_solr_service.sh version.tgz
+```
+Then you can start solr by:
+```shell
+sudo service solr start
+```
+
 ### Install QGIS
-guides at [QGIS Installers ](https://qgis.org/resources/installation-guide/#debian--ubuntu)
+guides at [QGIS Installers](https://qgis.org/resources/installation-guide/#debian--ubuntu), make sure to change the codename when add the repo, for example, for Ubuntu 24.04 it is `noble`.
 
 
 
