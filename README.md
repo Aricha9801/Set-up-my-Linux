@@ -2,8 +2,9 @@
 As a beginner of Linux, this guide shows how did I set up my Linux system (Ubuntu 24.04) step by step.
 
 > Me: GIS developer, Python, PostgreSQL and front-end developing.<br>
-> Working institute: ISRIC<br>
-> Device: ThinkPad-T14-Gen-4, previous system: Windows 11<br>
+> Organization: ISRIC<br>
+> Hardware: ThinkPad-T14-Gen-4
+> Previous os: Windows 11<br>
 
 ## Install Ubuntu
 I chose to wipe up my windows system. Can also chose to create a dual boot to have Windows and Ubuntu.
@@ -12,7 +13,7 @@ I chose to wipe up my windows system. Can also chose to create a dual boot to ha
 
 For the installation, check the guide [Ubuntu installation tutorial](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 
-It is recommended to use LTS.
+It is recommended to use LTS. I installed Ubuntu 24.04.2 LTS.
 
 For WUR environment, when it comes to problem about Secure Boot Violation, got to ServiceDesk for help.
 
@@ -189,6 +190,9 @@ Then you can start solr by:
 ```shell
 sudo service solr start
 ```
+
+### Install Docker
+Guide [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 ### Install QGIS
 guides at [QGIS Installers](https://qgis.org/resources/installation-guide/#debian--ubuntu), make sure to change the codename when add the repo, for example, for Ubuntu 24.04 it is `noble`.
