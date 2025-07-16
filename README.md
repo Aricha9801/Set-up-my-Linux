@@ -40,13 +40,31 @@ For the daily work operations, most apps are available as webpages, including Ou
 
 Choose a browser you like, by default it has Firefox, otherwise install other browsers and import your bookmark.
 
-### WUR vpn: FortiClient
-install guide [FortiClient 7.4 ](https://www.fortinet.com/support/product-downloads/linux)
-No support for Ubuntu 24.04, do it later.
+### Fundementals about installation
+Here are some commen ways to install software in Ubuntu:
+1. The most commen way is to use **APT**. Run `apt install program-name`. It can be applied to most standard software. Make sure to run `apt update` first to refresh the software list. And run `apt upgrade` from time to time to upgrade the software. 
+    - Sometimes, when the software is not in Ubuntu's default repo, or you want the latest version of a software, or you want to install multiple versions of a software, you can **add repository** of that software. After adding that, make sure to run `apt update` before installing it.
+2. If you just want a specific version, or the software is not in Ubuntu default repo but provides the .deb file, you can download the **.deb** file and install it by `apt install path` or `dpkg -i path`. By `apt install` it install dependencies automatically, while `dpkg` does not install dependencies.
+3. Sometimes we can use package manager like **Snap** to easily install softwares. But it is not recommended.
 
+### WUR vpn: FortiClient
+[FortiClient 7.4 ](https://www.fortinet.com/support/product-downloads/linux) does not support Ubuntu 24.04. I tried [this solution](https://www.reddit.com/r/fortinet/comments/1dzp2rn/forticlient_vpn_support_for_ubuntu_2404_lts/) and it works.
+```shell
+# Download libappindicator1
+wget http://mirrors.kernel.org/ubuntu/pool/universe/liba/libappindicator/libappindicator1_12.10.1+20.10.20200706.1-0ubuntu1_amd64.deb 
+# Download dependency required by libappindicator1
+wget http://mirrors.kernel.org/ubuntu/pool/universe/libd/libdbusmenu/libdbusmenu-gtk4_16.04.1+18.10.20180917-0ubuntu8_amd64.deb
+# Install both packages
+sudo apt install  ./libappindicator1_12.10.1+20.10.20200706.1-0ubuntu1_amd64.deb ./libdbusmenu-gtk4_16.04.1+18.10.20180917-0ubuntu8_amd64.deb 
+# Install forticlient downloaded from https://www.fortinet.com/support/product-downloads
+sudo apt install ./forticlient_vpn_7.4.0.1636_amd64.deb
+```
+When downloading forticlient .deb, go to [Product Downloads and Free Trials](https://www.fortinet.com/support/product-downloads), scroll down to **FortiClient VPN-only**, choose **DOWNLOAD VPN for Linux .deb**.
+
+After the installation, config the VPN.
 
 ### Install Microsoft Teams and Zoom
-Make sure you did apt update and apt upgrade
+Make sure you did `apt update` and `apt upgrade`.
 
 ```shell
 sudo apt install snapd
@@ -67,7 +85,7 @@ Download the .deb [Download Visual Studio Code](https://code.visualstudio.com/Do
 sudo dpkg -i ~/Downloads/code_1.XXX.deb
 code
 ```
-If you found apps like Teams and VScode are blurry, that's because [Blurry VsCode on wayland fractional scaling ](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/ikhc12o/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button). Setting scales to 100% can solve it. Other solutions can be found from the link.
+If you found apps like Teams and VScode are blurry, that's because [Blurry VsCode on wayland fractional scaling](https://www.reddit.com/r/Fedora/comments/wpkws3/blurry_vscode_on_wayland_fractional_scaling/ikhc12o/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button). Setting scales to 100% can solve it. Other solutions can be found from the link.
 
 
 ### Install and setup Git
@@ -80,12 +98,12 @@ git --version
 git config --global user.name "Your Name"
 git config --global user.email "youremail@domain.com"
 ```
-To connect to WUR gitlab, either create a access token or set up ssh key.
+To connect to WUR gitlab, either create an access token or set up ssh key.
 
 To set up ssh key for WUR gitlab, see guide [SSH keys for GitLab](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.wur.nl/en/show/ssh-keys-for-wur-gitlab.htm&ved=2ahUKEwis6dHvzb6OAxXp0wIHHaAMBh0QFnoECBsQAQ&usg=AOvVaw1NmhXZjnZ5JJbnMxwzdTMS)
 
 ```shell
-ssh-keygen -t ed25519 -C pietje.puk@wur.nl
+ssh-keygen -t ed25519 -C youremail@wur.nl
 ```
 Then paste the xxx.pub, in Gitlab add the ssh key.
 
@@ -108,7 +126,7 @@ python3 --version
 ```
 install pip and venv:
 ```shell
-sudo apt-get update
+sudo apt update
 sudo apt install python3-pip -y
 sudo apt install python3-venv -y
 ```
@@ -123,7 +141,7 @@ sudo apt update
 ```
 If curl not installed make sure to install it:
 ```shell
-sudo apt-get install curl
+sudo apt install curl
 ```
 ```shell
 sudo apt install postgresql-17
@@ -132,16 +150,17 @@ sudo systemctl enable postgresql
 ```
 Then config the postgres following the guide.
 
+Install PostGIS:
+```shell
+sudo apt install postgresql-17-postgis-3
+```
+
 Install pgadmin:
 guide at [pgAdmin 4 (APT)](https://www.pgadmin.org/download/pgadmin-4-apt/)
 ```shell
 curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 sudo apt install pgadmin4
-```
-Install PostGIS:
-```shell
-sudo apt install postgresql-17-postgis-3
 ```
 
 ### Install node and npm
