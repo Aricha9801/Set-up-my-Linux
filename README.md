@@ -1,10 +1,12 @@
 # Set-up-my-Linux
 As a beginner of Linux, this guide shows how did I set up my Linux system (Ubuntu 24.04) step by step.
 
-> Me: GIS developer, Python, PostgreSQL and front-end developing.<br>
-> Organization: ISRIC<br>
-> Hardware: ThinkPad-T14-Gen-4
-> Previous os: Windows 11<br>
+![Role](https://img.shields.io/badge/Role-GIS%20Developer-blue?style=for-the-badge)
+![Skills](https://img.shields.io/badge/Skills-Python%20|%20PostgreSQL%20|%20Frontend-green?style=for-the-badge)
+![Organization](https://img.shields.io/badge/Organization-ISRIC-orange?style=for-the-badge)
+![Hardware](https://img.shields.io/badge/Hardware-ThinkPad%20T14%20Gen%204-red?style=for-the-badge)
+![Previous OS](https://img.shields.io/badge/Previous%20OS-Windows%2011-0078d4?style=for-the-badge&logo=windows)
+![Target OS](https://img.shields.io/badge/Target%20OS-Ubuntu%2024.04%20LTS-E95420?style=for-the-badge&logo=ubuntu)
 
 ## Install Ubuntu
 I chose to wipe up my windows system. Can also chose to create a dual boot to have Windows and Ubuntu.
